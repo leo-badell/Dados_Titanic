@@ -216,56 +216,6 @@ def plot_distribuicao_idade(df, caminho_saida):
         plt.close()
 
 
-def plot_tarifa_por_sobrevivencia(df, caminho_saida):
-    """
-    Cria boxplot da distribuição de tarifas por sobrevivência.
-    
-    Parâmetros:
-    -----------
-    df : pd.DataFrame
-        DataFrame com os dados
-    caminho_saida : str
-        Caminho para salvar o gráfico
-    """
-    # Validação: verifica se as colunas necessárias existem
-    if 'Fare' not in df.columns or 'Survived' not in df.columns:
-        print(f"[AVISO] Colunas 'Fare' ou 'Survived' não encontradas. Pulando gráfico: {caminho_saida}")
-        return
-    
-    try:
-        plt.figure(figsize=(8, 6))
-        
-        # Criar boxplot (remove NaN automaticamente)
-        df_plot = df[['Survived', 'Fare']].copy()
-        df_plot['Survived'] = df_plot['Survived'].map({0: 'Não Sobreviveu', 1: 'Sobreviveu'})
-        
-        # Remove linhas com valores ausentes
-        df_plot = df_plot.dropna()
-        
-        # Verifica se há dados suficientes
-        if len(df_plot) == 0:
-            print(f"[AVISO] Não há dados válidos de tarifa. Pulando gráfico: {caminho_saida}")
-            plt.close()
-            return
-        
-        sns.boxplot(data=df_plot, x='Survived', y='Fare', hue='Survived', palette=['#ff6b6b', '#51cf66'], legend=False)
-        
-        plt.title('Distribuição de Tarifas por Status de Sobrevivência', fontsize=14, fontweight='bold')
-        plt.xlabel('Status de Sobrevivência', fontsize=12)
-        plt.ylabel('Tarifa (£)', fontsize=12)
-        
-        plt.tight_layout()
-        
-        # Salvar gráfico
-        criar_diretorio_saida(os.path.dirname(caminho_saida))
-        plt.savefig(caminho_saida, dpi=300, bbox_inches='tight')
-        print(f"[OK] Gráfico salvo: {caminho_saida}")
-        plt.close()
-    except Exception as e:
-        print(f"[ERRO] Falha ao criar gráfico de tarifa por sobrevivência: {e}")
-        plt.close()
-
-
 def gerar_todas_visualizacoes(df, diretorio_saida):
     """
     Gera todas as visualizações do projeto.
@@ -290,6 +240,5 @@ def gerar_todas_visualizacoes(df, diretorio_saida):
     plot_sobrevivencia_por_sexo(df, os.path.join(diretorio_saida, '02_sobrevivencia_por_sexo.png'))
     plot_sobrevivencia_por_classe(df, os.path.join(diretorio_saida, '03_sobrevivencia_por_classe.png'))
     plot_distribuicao_idade(df, os.path.join(diretorio_saida, '04_distribuicao_idade.png'))
-    plot_tarifa_por_sobrevivencia(df, os.path.join(diretorio_saida, '05_tarifa_por_sobrevivencia.png'))
     
     print(f"\n[OK] Todas as visualizações foram geradas em: {diretorio_saida}")

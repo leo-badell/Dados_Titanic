@@ -14,8 +14,7 @@ Dados_Titanic/
 │   │   ├── 01_distribuicao_sobreviventes.png
 │   │   ├── 02_sobrevivencia_por_sexo.png
 │   │   ├── 03_sobrevivencia_por_classe.png
-│   │   ├── 04_distribuicao_idade.png
-│   │   └── 05_tarifa_por_sobrevivencia.png
+│   │   └── 04_distribuicao_idade.png
 │   │
 │   └── tables/                              # Resultados textuais
 │       └── insights.txt
@@ -58,7 +57,6 @@ Dados_Titanic/
 - Função: analisar_sobrevivencia()
   * Taxa geral de sobrevivência
   * Sobrevivência por sexo, classe e idade
-  * Tarifa média por sobrevivência
 
 - Função: gerar_insights()
   * Cria interpretações em linguagem natural
@@ -67,12 +65,11 @@ Dados_Titanic/
   * Salva insights em arquivo texto
 
 ### 3. src/graficos.py
-- 5 funções de visualização:
+- 4 funções de visualização:
   1. plot_distribuicao_sobreviventes()
   2. plot_sobrevivencia_por_sexo()
   3. plot_sobrevivencia_por_classe()
   4. plot_distribuicao_idade()
-  5. plot_tarifa_por_sobrevivencia()
 
 - Função: gerar_todas_visualizacoes()
   * Coordena criação de todos os gráficos
@@ -128,12 +125,11 @@ python src/executar.py
 - Influência do sexo
 - Impacto da classe social
 - Faixa etária e sobrevivência
-- Relação entre tarifa e sobrevivência
 - Qualidade dos dados
 - Conclusão
 
 ### outputs/figures/
-- 5 gráficos PNG em alta resolução
+- 4 gráficos PNG em alta resolução
 - Visualizações de sobrevivência e distribuições
 - Comparações por sexo, classe e idade
 
@@ -154,7 +150,6 @@ python src/executar.py
 2. Mulheres: 74.2% vs Homens: 18.9%
 3. 1ª Classe: 63% | 2ª Classe: 47% | 3ª Classe: 24%
 4. Crianças tiveram prioridade
-5. Tarifas mais altas = maior sobrevivência
 
 ## TECNOLOGIAS
 

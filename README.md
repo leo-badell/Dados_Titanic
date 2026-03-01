@@ -1,5 +1,7 @@
 # 🚢 Análise Exploratória de Dados - Dataset Titanic
 
+**Repositório:** [https://github.com/leo-badell/Dados_Titanic](https://github.com/leo-badell/Dados_Titanic)
+
 ## 📋 Objetivo do Projeto
 
 Este projeto realiza uma **Análise Exploratória de Dados (EDA)** completa sobre o famoso dataset do Titanic. O objetivo é investigar os fatores que influenciaram a sobrevivência dos passageiros durante o naufrágio, utilizando técnicas estatísticas e visualizações gráficas para extrair insights valiosos dos dados.
@@ -63,22 +65,19 @@ Investigação de padrões através de agrupamentos e comparações:
 - Sobrevivência por sexo
 - Sobrevivência por classe social
 - Sobrevivência por faixa etária
-- Relação entre tarifa paga e sobrevivência
 
 ### 7. Geração de Insights
 Extração de conclusões em linguagem natural sobre:
 - Impacto do sexo na sobrevivência
 - Influência da classe social
 - Efeito da idade
-- Relação entre poder aquisitivo (tarifa) e chances de sobrevivência
 
 ### 8. Visualizações Gráficas
-Criação de 5 gráficos salvos em alta resolução (300 DPI):
+Criação de 4 gráficos salvos em alta resolução (300 DPI):
 - **Distribuição de sobreviventes**: Contagem total de sobreviventes vs não sobreviventes
 - **Sobrevivência por sexo**: Comparação entre homens e mulheres
 - **Sobrevivência por classe**: Taxa de sobrevivência nas três classes
 - **Distribuição de idade**: Histograma de idade por status de sobrevivência
-- **Tarifa por sobrevivência**: Boxplot mostrando distribuição de tarifas
 
 ## 🧠 Decisões de Tratamento
 
@@ -108,16 +107,12 @@ Gráfico de barras empilhadas mostrando percentuais. Revela desigualdade social:
 ### Gráfico 4: Distribuição de Idade
 Histogramas sobrepostos que permitem comparar a distribuição etária entre sobreviventes e não sobreviventes. Útil para identificar faixas etárias mais vulneráveis.
 
-### Gráfico 5: Tarifa por Sobrevivência
-Boxplot que mostra a distribuição de valores pagos. Tarifas mais altas indicam melhores acomodações (classes superiores), correlacionadas com maior sobrevivência.
-
 ## 💡 Principais Insights
 
 1. **Taxa geral de sobrevivência foi baixa (~38%)**, evidenciando a magnitude do desastre
 2. **Mulheres tiveram taxa de sobrevivência ~74%** vs ~19% dos homens (política "mulheres e crianças primeiro")
 3. **Classe social foi determinante**: 1ª classe (~63%), 2ª classe (~47%), 3ª classe (~24%)
 4. **Crianças e adolescentes tiveram prioridade** nos botes salva-vidas
-5. **Passageiros que pagaram tarifas mais altas sobreviveram mais**, refletindo vantagens das classes superiores
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -140,22 +135,23 @@ Dados_Titanic/
 │   │   ├── 01_distribuicao_sobreviventes.png
 │   │   ├── 02_sobrevivencia_por_sexo.png
 │   │   ├── 03_sobrevivencia_por_classe.png
-│   │   ├── 04_distribuicao_idade.png
-│   │   └── 05_tarifa_por_sobrevivencia.png
+│   │   └── 04_distribuicao_idade.png
 │   │
 │   └── tables/                   # Tabelas e insights em texto
 │       └── insights.txt          # Interpretações e conclusões
 │
 ├── src/                           # Código-fonte modularizado
-│   ├── executar.py               # Script principal de execução
-│   ├── carregador.py             # Carregamento e validação de dados
-│   ├── analise.py                # Funções de análise exploratória
-│   └── graficos.py               # Criação de gráficos
+│   ├── executar.py               # ⭐ Script principal (ÚNICO EXECUTÁVEL)
+│   ├── carregador.py             # Módulo: Carregamento e validação de dados
+│   ├── analise.py                # Módulo: Funções de análise exploratória
+│   └── graficos.py               # Módulo: Criação de gráficos
 │
 ├── README.md                      # Documentação completa do projeto
 ├── requirements.txt               # Dependências Python
 └── .gitignore                     # Arquivos ignorados pelo Git
 ```
+
+> **⚠️ Importante**: Os arquivos `carregador.py`, `analise.py` e `graficos.py` são **módulos** (bibliotecas de funções). Eles não devem ser executados diretamente, pois apenas **definem** funções sem chamá-las. Somente o arquivo `executar.py` deve ser executado, pois ele importa os módulos e orquestra todo o pipeline de análise.
 
 ## 🚀 Como Executar o Projeto
 
